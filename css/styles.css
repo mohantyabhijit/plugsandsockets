@@ -15,6 +15,10 @@
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --radius: 12px;
     --transition: all 0.3s ease;
+    
+    /* Mobile-specific variables */
+    --mobile-padding: clamp(10px, 3vw, 20px);
+    --mobile-gap: clamp(8px, 2vw, 15px);
 }
 
 /* ===== Reset & Base ===== */
@@ -34,6 +38,9 @@ body {
     min-height: 100vh;
     color: var(--dark);
     line-height: 1.6;
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
+    -webkit-font-smoothing: antialiased; /* Better font rendering */
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -69,14 +76,14 @@ body {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: clamp(1.5rem, 5vw, 4rem);
     font-weight: 700;
     margin-bottom: 15px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 .tagline {
-    font-size: 1.3rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.3rem);
     opacity: 0.95;
     font-weight: 400;
 }
@@ -102,7 +109,7 @@ body {
     text-align: center;
     color: var(--dark);
     margin-bottom: 10px;
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
 }
 
 .checker-card > p {
@@ -149,12 +156,18 @@ body {
     background: var(--white);
     cursor: pointer;
     transition: var(--transition);
+    min-height: 44px; /* Touch-friendly height */
+    touch-action: manipulation;
 }
 
 .form-group select:focus {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-group select:hover {
+    border-color: var(--primary);
 }
 
 .swap-icon {
@@ -164,11 +177,23 @@ body {
     color: var(--primary);
     transition: var(--transition);
     user-select: none;
+    min-width: 44px; /* Touch target size */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    touch-action: manipulation;
 }
 
 .swap-icon:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     color: var(--primary-dark);
+    background: rgba(37, 99, 235, 0.1);
+}
+
+.swap-icon:active {
+    transform: scale(0.95);
 }
 
 .check-btn {
@@ -182,11 +207,19 @@ body {
     cursor: pointer;
     transition: var(--transition);
     font-family: inherit;
+    min-height: 44px; /* Minimum touch target size */
+    touch-action: manipulation; /* Optimize for touch */
+    will-change: transform; /* Optimize animations */
 }
 
 .check-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+.check-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(249, 115, 22, 0.3);
 }
 
 /* ===== Result Box ===== */
@@ -399,7 +432,7 @@ body {
 .country-section h2,
 .tips-section h2 {
     text-align: center;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     margin-bottom: 10px;
     color: var(--dark);
 }
@@ -408,6 +441,7 @@ body {
     text-align: center;
     color: var(--gray);
     margin-bottom: 40px;
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .plug-grid {
@@ -423,11 +457,18 @@ body {
     text-align: center;
     transition: var(--transition);
     cursor: pointer;
+    min-height: 120px; /* Consistent height */
+    touch-action: manipulation;
+    will-change: transform; /* Optimize animations */
 }
 
 .plug-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: var(--shadow);
+}
+
+.plug-card:active {
+    transform: translateY(-1px);
 }
 
 .plug-icon {
@@ -463,13 +504,13 @@ body {
 
 .plug-card h3 {
     color: var(--dark);
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     margin-bottom: 5px;
 }
 
 .plug-card p {
     color: var(--gray);
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
 }
 
 .plug-card .voltage {
@@ -502,11 +543,22 @@ body {
     font-family: inherit;
     font-size: 0.9rem;
     transition: var(--transition);
+    min-height: 40px; /* Touch-friendly height */
+    min-width: 60px;
+    touch-action: manipulation;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .filter-btn:hover {
     border-color: var(--primary);
     color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.filter-btn:active {
+    transform: translateY(0);
 }
 
 .filter-btn.active {
@@ -527,11 +579,18 @@ body {
     padding: 20px;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    cursor: pointer;
+    touch-action: manipulation;
+    will-change: transform; /* Optimize animations */
 }
 
 .country-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
+}
+
+.country-card:active {
+    transform: translateY(0);
 }
 
 .country-header {
@@ -548,11 +607,11 @@ body {
 .country-name {
     font-weight: 600;
     color: var(--dark);
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2.2vw, 1.1rem);
 }
 
 .country-region {
-    font-size: 0.8rem;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
     color: var(--gray);
 }
 
@@ -622,12 +681,12 @@ body {
 .tip-card h3 {
     color: var(--dark);
     margin-bottom: 10px;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2.2vw, 1.1rem);
 }
 
 .tip-card p {
     color: var(--gray);
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
 }
 
 /* ===== Footer ===== */
@@ -666,75 +725,341 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== Responsive ===== */
+/* ===== Mobile Performance & Accessibility ===== */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.2rem;
+    * {
+        -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
     }
     
-    .tagline {
-        font-size: 1rem;
+    /* Optimize animations for mobile */
+    .plug-card:hover,
+    .country-card:hover,
+    .tip-card:hover,
+    .filter-btn:hover {
+        transform: none; /* Disable hover effects on touch devices */
+    }
+    
+    /* Focus states for accessibility */
+    .check-btn:focus,
+    .form-group select:focus,
+    .filter-btn:focus {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+    }
+}
+
+/* ===== Responsive Design ===== */
+
+/* Large screens and above (1200px+) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .plug-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .country-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+}
+
+/* Desktop (992px - 1199px) */
+@media (max-width: 1199px) and (min-width: 992px) {
+    .checker-card {
+        padding: 35px;
+    }
+}
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+    .checker-card {
+        padding: 30px;
+    }
+    
+    .plug-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 18px;
+    }
+    
+    .country-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+    
+    .tips-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+/* Small tablet/Large phone (576px - 767px) */
+@media (max-width: 767px) and (min-width: 576px) {
+    .hero {
+        padding: 60px 20px 80px;
     }
     
     .form-row {
         flex-direction: column;
+        gap: 15px;
     }
     
     .swap-icon {
         transform: rotate(90deg);
         align-self: center;
+        padding: 8px;
+        margin: 5px 0;
     }
     
     .checker-card {
         padding: 25px;
+        margin: 0 10px;
     }
     
     .plug-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+    
+    .country-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     }
     
     .country-info {
-        grid-template-columns: 1fr;
-    }
-    
-    .region-filter {
+        grid-template-columns: repeat(2, 1fr);
         gap: 8px;
     }
     
+    .region-filter {
+        gap: 6px;
+        padding: 0 10px;
+    }
+    
     .filter-btn {
-        padding: 8px 14px;
-        font-size: 0.8rem;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        min-width: 80px;
     }
 
     .plug-photo-section {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .plug-photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+    
+    .tips-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .result-details {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+/* Mobile (320px - 575px) */
+@media (max-width: 575px) {
+    .hero {
+        padding: 40px 15px 60px;
+    }
+    
+    .checker-section {
+        margin-top: -30px;
+    }
+    
+    .checker-card {
+        padding: 20px 15px;
+        margin: 0 10px;
+        border-radius: 8px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .swap-icon {
+        transform: rotate(90deg);
+        align-self: center;
+        padding: 6px;
+        font-size: 1.2rem;
+        margin: 8px 0;
+    }
+    
+    .form-group select {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+    }
+    
+    .check-btn {
+        padding: 14px 24px;
+        font-size: 1rem;
+        width: 100%;
+        margin-top: 5px;
+    }
+    
+    .plug-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 12px;
+    }
+    
+    .plug-card {
+        padding: 15px 10px;
+        min-height: 100px;
+    }
+    
+    .plug-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    
+    .plug-icon-svg {
+        width: 80px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+    
+    .country-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .country-card {
+        padding: 15px;
+    }
+    
+    .country-info {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+    
+    .region-filter {
+        gap: 4px;
+        padding: 0 5px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+        padding: 6px 8px;
+        font-size: 0.75rem;
+        min-width: 70px;
+        flex: 0 0 auto;
+    }
+
+    .plug-photo-section {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 20px;
     }
 
     .plug-photo-grid {
         grid-template-columns: 1fr;
     }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        padding: 50px 15px 80px;
+    
+    .plug-photo-card {
+        padding: 10px;
     }
     
-    .hero h1 {
-        font-size: 1.8rem;
+    .tips-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
     
-    .checker-section {
-        margin-top: -40px;
+    .tip-card {
+        padding: 20px 15px;
     }
     
-    .checker-card {
-        padding: 20px;
+    .tip-icon {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
     }
     
     .plug-types-section,
     .country-section,
     .tips-section {
-        padding: 50px 15px;
+        padding: 40px 15px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    .result {
+        margin-top: 20px;
+        padding: 20px 15px;
+    }
+    
+    .result-details {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .plug-badges {
+        justify-content: center;
+        gap: 4px;
+    }
+    
+    .plug-badge {
+        font-size: 0.75rem;
+        padding: 3px 8px;
+    }
+}
+
+/* Extra small devices (< 320px) */
+@media (max-width: 319px) {
+    .checker-card {
+        padding: 15px 10px;
+        margin: 0 5px;
+    }
+    
+    .plug-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 8px;
+    }
+    
+    .plug-card {
+        padding: 10px 5px;
+        min-height: 85px;
+    }
+    
+    .plug-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    
+    .plug-icon-svg {
+        width: 70px;
+        height: 40px;
+    }
+    
+    .container {
+        padding: 0 5px;
+    }
+    
+    .filter-btn {
+        padding: 5px 6px;
+        font-size: 0.7rem;
+        min-width: 60px;
+    }
+    
+    .check-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .tip-card {
+        padding: 15px 10px;
+    }
+    
+    .tip-icon {
+        font-size: 2rem;
     }
 }
