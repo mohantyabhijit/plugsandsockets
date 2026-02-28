@@ -1,0 +1,636 @@
+{
+  "plugTypes": {
+    "A": {
+      "name": "Type A",
+      "description": "Two flat parallel pins",
+      "voltage": "100-127V",
+      "grounded": false,
+      "regions": ["North America", "Central America", "Japan"]
+    },
+    "B": {
+      "name": "Type B",
+      "description": "Two flat parallel pins + grounding pin",
+      "voltage": "100-127V",
+      "grounded": true,
+      "regions": ["North America", "Central America"]
+    },
+    "C": {
+      "name": "Type C",
+      "description": "Two round pins (Europlug)",
+      "voltage": "220-240V",
+      "grounded": false,
+      "regions": ["Europe", "South America", "Asia"]
+    },
+    "D": {
+      "name": "Type D",
+      "description": "Three large round pins in triangle",
+      "voltage": "220-240V",
+      "grounded": true,
+      "regions": ["India", "Nepal", "Sri Lanka"]
+    },
+    "E": {
+      "name": "Type E",
+      "description": "Two round pins + grounding hole",
+      "voltage": "220-240V",
+      "grounded": true,
+      "regions": ["France", "Belgium", "Poland"]
+    },
+    "F": {
+      "name": "Type F",
+      "description": "Two round pins + grounding clips (Schuko)",
+      "voltage": "220-240V",
+      "grounded": true,
+      "regions": ["Germany", "Europe"]
+    },
+    "G": {
+      "name": "Type G",
+      "description": "Three rectangular pins in triangle",
+      "voltage": "220-240V",
+      "grounded": true,
+      "regions": ["UK", "Ireland", "Malaysia", "Singapore"]
+    },
+    "H": {
+      "name": "Type H",
+      "description": "Three pins in V-shape (Israel)",
+      "voltage": "220-240V",
+      "grounded": true,
+      "regions": ["Israel"]
+    },
+    "I": {
+      "name": "Type I",
+      "description": "Two angled flat pins + grounding",
+      "voltage": "220-240V",
+      "grounded": true,
+      "regions": ["Australia", "New Zealand", "China", "Argentina"]
+    },
+    "J": {
+      "name": "Type J",
+      "description": "Three round pins (Switzerland)",
+      "voltage": "220-240V",
+      "grounded": true,
+      "regions": ["Switzerland", "Liechtenstein"]
+    },
+    "K": {
+      "name": "Type K",
+      "description": "Three round pins (Denmark)",
+      "voltage": "220-240V",
+      "grounded": true,
+      "regions": ["Denmark", "Greenland"]
+    },
+    "L": {
+      "name": "Type L",
+      "description": "Three round pins in a row (Italy)",
+      "voltage": "220-240V",
+      "grounded": true,
+      "regions": ["Italy", "Chile"]
+    },
+    "M": {
+      "name": "Type M",
+      "description": "Three large round pins (South Africa)",
+      "voltage": "220-240V",
+      "grounded": true,
+      "regions": ["South Africa", "India (large appliances)"]
+    },
+    "N": {
+      "name": "Type N",
+      "description": "Three round pins (Brazil)",
+      "voltage": "100-240V",
+      "grounded": true,
+      "regions": ["Brazil", "South Africa"]
+    }
+  },
+  "countries": {
+    "Argentina": {
+      "name": "Argentina",
+      "code": "AR",
+      "plugTypes": ["C", "I"],
+      "voltage": "220V",
+      "frequency": "50Hz",
+      "region": "South America",
+      "notes": "Type C is most common for small devices"
+    },
+    "Australia": {
+      "name": "Australia",
+      "code": "AU",
+      "plugTypes": ["I"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Oceania",
+      "notes": "Type I with angled pins is standard everywhere"
+    },
+    "Austria": {
+      "name": "Austria",
+      "code": "AT",
+      "plugTypes": ["C", "F"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Standard European plugs work throughout"
+    },
+    "Belgium": {
+      "name": "Belgium",
+      "code": "BE",
+      "plugTypes": ["C", "E"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Type E sockets have grounding pin in socket"
+    },
+    "Brazil": {
+      "name": "Brazil",
+      "code": "BR",
+      "plugTypes": ["C", "N"],
+      "voltage": "127V/220V",
+      "frequency": "60Hz",
+      "region": "South America",
+      "notes": "Voltage varies by region - check before plugging in!"
+    },
+    "Cambodia": {
+      "name": "Cambodia",
+      "code": "KH",
+      "plugTypes": ["A", "C", "G"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Asia",
+      "notes": "Multiple plug types accepted in most hotels"
+    },
+    "Canada": {
+      "name": "Canada",
+      "code": "CA",
+      "plugTypes": ["A", "B"],
+      "voltage": "120V",
+      "frequency": "60Hz",
+      "region": "North America",
+      "notes": "Same plugs as USA"
+    },
+    "Chile": {
+      "name": "Chile",
+      "code": "CL",
+      "plugTypes": ["C", "L"],
+      "voltage": "220V",
+      "frequency": "50Hz",
+      "region": "South America",
+      "notes": "Type L is common for grounded appliances"
+    },
+    "China": {
+      "name": "China",
+      "code": "CN",
+      "plugTypes": ["A", "C", "I"],
+      "voltage": "220V",
+      "frequency": "50Hz",
+      "region": "Asia",
+      "notes": "Many sockets accept multiple plug types"
+    },
+    "Colombia": {
+      "name": "Colombia",
+      "code": "CO",
+      "plugTypes": ["A", "B"],
+      "voltage": "110V",
+      "frequency": "60Hz",
+      "region": "South America",
+      "notes": "Same as US plugs"
+    },
+    "Costa Rica": {
+      "name": "Costa Rica",
+      "code": "CR",
+      "plugTypes": ["A", "B"],
+      "voltage": "120V",
+      "frequency": "60Hz",
+      "region": "Central America",
+      "notes": "US-style plugs work fine"
+    },
+    "Croatia": {
+      "name": "Croatia",
+      "code": "HR",
+      "plugTypes": ["C", "F"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Standard European plugs"
+    },
+    "Czech Republic": {
+      "name": "Czech Republic",
+      "code": "CZ",
+      "plugTypes": ["C", "E"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Type E sockets are grounded"
+    },
+    "Denmark": {
+      "name": "Denmark",
+      "code": "DK",
+      "plugTypes": ["C", "E", "F", "K"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Type K is unique to Denmark"
+    },
+    "Egypt": {
+      "name": "Egypt",
+      "code": "EG",
+      "plugTypes": ["C", "F"],
+      "voltage": "220V",
+      "frequency": "50Hz",
+      "region": "Africa",
+      "notes": "European-style plugs are standard"
+    },
+    "Finland": {
+      "name": "Finland",
+      "code": "FI",
+      "plugTypes": ["C", "F"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Standard European plugs"
+    },
+    "France": {
+      "name": "France",
+      "code": "FR",
+      "plugTypes": ["C", "E"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Type E has grounding pin protruding from socket"
+    },
+    "Germany": {
+      "name": "Germany",
+      "code": "DE",
+      "plugTypes": ["C", "F"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Schuko (Type F) is the standard grounded plug"
+    },
+    "Greece": {
+      "name": "Greece",
+      "code": "GR",
+      "plugTypes": ["C", "F"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Standard European plugs throughout"
+    },
+    "Hong Kong": {
+      "name": "Hong Kong",
+      "code": "HK",
+      "plugTypes": ["G"],
+      "voltage": "220V",
+      "frequency": "50Hz",
+      "region": "Asia",
+      "notes": "British-style plugs (same as UK)"
+    },
+    "Hungary": {
+      "name": "Hungary",
+      "code": "HU",
+      "plugTypes": ["C", "F"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Standard European plugs"
+    },
+    "Iceland": {
+      "name": "Iceland",
+      "code": "IS",
+      "plugTypes": ["C", "F"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Standard European plugs"
+    },
+    "India": {
+      "name": "India",
+      "code": "IN",
+      "plugTypes": ["C", "D", "M"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Asia",
+      "notes": "Type D is the old British standard, still common"
+    },
+    "Indonesia": {
+      "name": "Indonesia",
+      "code": "ID",
+      "plugTypes": ["C", "F"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Asia",
+      "notes": "European-style plugs work well"
+    },
+    "Ireland": {
+      "name": "Ireland",
+      "code": "IE",
+      "plugTypes": ["G"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Same as UK - British-style plugs"
+    },
+    "Israel": {
+      "name": "Israel",
+      "code": "IL",
+      "plugTypes": ["C", "H"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Middle East",
+      "notes": "Type H is unique to Israel, but C works for most devices"
+    },
+    "Italy": {
+      "name": "Italy",
+      "code": "IT",
+      "plugTypes": ["C", "F", "L"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Type L comes in 10A and 16A versions"
+    },
+    "Japan": {
+      "name": "Japan",
+      "code": "JP",
+      "plugTypes": ["A", "B"],
+      "voltage": "100V",
+      "frequency": "50/60Hz",
+      "region": "Asia",
+      "notes": "Eastern Japan 50Hz, Western Japan 60Hz. Lower voltage than US."
+    },
+    "Kenya": {
+      "name": "Kenya",
+      "code": "KE",
+      "plugTypes": ["G"],
+      "voltage": "240V",
+      "frequency": "50Hz",
+      "region": "Africa",
+      "notes": "British-style plugs"
+    },
+    "Malaysia": {
+      "name": "Malaysia",
+      "code": "MY",
+      "plugTypes": ["G"],
+      "voltage": "240V",
+      "frequency": "50Hz",
+      "region": "Asia",
+      "notes": "British-style plugs, same as UK"
+    },
+    "Maldives": {
+      "name": "Maldives",
+      "code": "MV",
+      "plugTypes": ["C", "D", "G", "J", "K", "L"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Asia",
+      "notes": "Resorts often have universal sockets"
+    },
+    "Mexico": {
+      "name": "Mexico",
+      "code": "MX",
+      "plugTypes": ["A", "B"],
+      "voltage": "127V",
+      "frequency": "60Hz",
+      "region": "North America",
+      "notes": "Same plugs as USA"
+    },
+    "Morocco": {
+      "name": "Morocco",
+      "code": "MA",
+      "plugTypes": ["C", "E"],
+      "voltage": "220V",
+      "frequency": "50Hz",
+      "region": "Africa",
+      "notes": "French-style plugs and sockets"
+    },
+    "Netherlands": {
+      "name": "Netherlands",
+      "code": "NL",
+      "plugTypes": ["C", "F"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Standard European plugs"
+    },
+    "New Zealand": {
+      "name": "New Zealand",
+      "code": "NZ",
+      "plugTypes": ["I"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Oceania",
+      "notes": "Same as Australia"
+    },
+    "Nigeria": {
+      "name": "Nigeria",
+      "code": "NG",
+      "plugTypes": ["D", "G"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Africa",
+      "notes": "British-style plugs"
+    },
+    "Norway": {
+      "name": "Norway",
+      "code": "NO",
+      "plugTypes": ["C", "F"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Standard European plugs"
+    },
+    "Peru": {
+      "name": "Peru",
+      "code": "PE",
+      "plugTypes": ["A", "B", "C"],
+      "voltage": "220V",
+      "frequency": "60Hz",
+      "region": "South America",
+      "notes": "Mixed plug types - universal adapter recommended"
+    },
+    "Philippines": {
+      "name": "Philippines",
+      "code": "PH",
+      "plugTypes": ["A", "B", "C"],
+      "voltage": "220V",
+      "frequency": "60Hz",
+      "region": "Asia",
+      "notes": "US-style plugs common, but voltage is higher"
+    },
+    "Poland": {
+      "name": "Poland",
+      "code": "PL",
+      "plugTypes": ["C", "E"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Type E sockets with grounding pin"
+    },
+    "Portugal": {
+      "name": "Portugal",
+      "code": "PT",
+      "plugTypes": ["C", "F"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Standard European plugs"
+    },
+    "Qatar": {
+      "name": "Qatar",
+      "code": "QA",
+      "plugTypes": ["D", "G"],
+      "voltage": "240V",
+      "frequency": "50Hz",
+      "region": "Middle East",
+      "notes": "British-style plugs common"
+    },
+    "Russia": {
+      "name": "Russia",
+      "code": "RU",
+      "plugTypes": ["C", "F"],
+      "voltage": "220V",
+      "frequency": "50Hz",
+      "region": "Europe/Asia",
+      "notes": "European-style plugs throughout"
+    },
+    "Saudi Arabia": {
+      "name": "Saudi Arabia",
+      "code": "SA",
+      "plugTypes": ["A", "B", "C", "G"],
+      "voltage": "220V",
+      "frequency": "60Hz",
+      "region": "Middle East",
+      "notes": "Mixed plug types - universal adapter useful"
+    },
+    "Singapore": {
+      "name": "Singapore",
+      "code": "SG",
+      "plugTypes": ["G"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Asia",
+      "notes": "British-style plugs (same as UK)"
+    },
+    "South Africa": {
+      "name": "South Africa",
+      "code": "ZA",
+      "plugTypes": ["C", "M", "N"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Africa",
+      "notes": "Type M (large) and Type N are common"
+    },
+    "South Korea": {
+      "name": "South Korea",
+      "code": "KR",
+      "plugTypes": ["C", "F"],
+      "voltage": "220V",
+      "frequency": "60Hz",
+      "region": "Asia",
+      "notes": "European-style plugs, but 60Hz frequency"
+    },
+    "Spain": {
+      "name": "Spain",
+      "code": "ES",
+      "plugTypes": ["C", "F"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Standard European plugs"
+    },
+    "Sri Lanka": {
+      "name": "Sri Lanka",
+      "code": "LK",
+      "plugTypes": ["D", "G", "M"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Asia",
+      "notes": "Multiple plug types in use"
+    },
+    "Sweden": {
+      "name": "Sweden",
+      "code": "SE",
+      "plugTypes": ["C", "F"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Standard European plugs"
+    },
+    "Switzerland": {
+      "name": "Switzerland",
+      "code": "CH",
+      "plugTypes": ["C", "J"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Type J is unique to Switzerland/Liechtenstein"
+    },
+    "Taiwan": {
+      "name": "Taiwan",
+      "code": "TW",
+      "plugTypes": ["A", "B"],
+      "voltage": "110V",
+      "frequency": "60Hz",
+      "region": "Asia",
+      "notes": "US-style plugs and voltage"
+    },
+    "Thailand": {
+      "name": "Thailand",
+      "code": "TH",
+      "plugTypes": ["A", "B", "C", "F"],
+      "voltage": "220V",
+      "frequency": "50Hz",
+      "region": "Asia",
+      "notes": "Multiple plug types accepted"
+    },
+    "Turkey": {
+      "name": "Turkey",
+      "code": "TR",
+      "plugTypes": ["C", "F"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe/Asia",
+      "notes": "Standard European plugs"
+    },
+    "United Arab Emirates": {
+      "name": "United Arab Emirates",
+      "code": "AE",
+      "plugTypes": ["C", "D", "G"],
+      "voltage": "220V",
+      "frequency": "50Hz",
+      "region": "Middle East",
+      "notes": "British-style Type G is most common"
+    },
+    "United Kingdom": {
+      "name": "United Kingdom",
+      "code": "GB",
+      "plugTypes": ["G"],
+      "voltage": "230V",
+      "frequency": "50Hz",
+      "region": "Europe",
+      "notes": "Type G with fused plugs is mandatory"
+    },
+    "United States": {
+      "name": "United States",
+      "code": "US",
+      "plugTypes": ["A", "B"],
+      "voltage": "120V",
+      "frequency": "60Hz",
+      "region": "North America",
+      "notes": "Type B is grounded version with third pin"
+    },
+    "Vietnam": {
+      "name": "Vietnam",
+      "code": "VN",
+      "plugTypes": ["A", "C", "F"],
+      "voltage": "220V",
+      "frequency": "50Hz",
+      "region": "Asia",
+      "notes": "Multiple plug types in use"
+    }
+  },
+  "regions": [
+    "Africa",
+    "Asia",
+    "Central America",
+    "Europe",
+    "Middle East",
+    "North America",
+    "Oceania",
+    "South America"
+  ]
+}
