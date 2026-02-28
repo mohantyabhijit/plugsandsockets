@@ -24,105 +24,156 @@ const plugIcons = {
     'K': '⭕', 'L': '⭕', 'M': '🔌', 'N': '⭕'
 };
 
-// Plug + socket illustration blueprints (ViewBox 0 0 120 80)
+// Enhanced plug visual blueprints with more detail (ViewBox 0 0 120 80)
 const plugVisualBlueprints = {
     A: {
         connectors: [
-            { shape: 'rect', x: 34, y: 14, width: 10, height: 40, rx: 3 },
-            { shape: 'rect', x: 66, y: 14, width: 10, height: 40, rx: 3 }
+            { shape: 'rect', x: 32, y: 12, width: 12, height: 46, rx: 4 },
+            { shape: 'rect', x: 66, y: 12, width: 12, height: 46, rx: 4 }
+        ],
+        extras: [
+            // Add plastic body detail
+            { shape: 'rect', x: 30, y: 60, width: 60, height: 8, rx: 4, kind: 'body' }
         ]
     },
     B: {
         connectors: [
-            { shape: 'rect', x: 34, y: 14, width: 10, height: 40, rx: 3 },
-            { shape: 'rect', x: 66, y: 14, width: 10, height: 40, rx: 3 },
-            { shape: 'rect', x: 50, y: 2, width: 10, height: 26, rx: 3, kind: 'ground' }
+            { shape: 'rect', x: 32, y: 16, width: 12, height: 42, rx: 4 },
+            { shape: 'rect', x: 66, y: 16, width: 12, height: 42, rx: 4 },
+            { shape: 'rect', x: 54, y: 2, width: 12, height: 30, rx: 4, kind: 'ground' }
+        ],
+        extras: [
+            { shape: 'rect', x: 30, y: 60, width: 60, height: 8, rx: 4, kind: 'body' }
         ]
     },
     C: {
         connectors: [
-            { shape: 'circle', cx: 44, cy: 36, r: 6 },
-            { shape: 'circle', cx: 76, cy: 36, r: 6 }
+            { shape: 'circle', cx: 42, cy: 36, r: 7 },
+            { shape: 'circle', cx: 78, cy: 36, r: 7 }
+        ],
+        extras: [
+            // Add Europlug body outline
+            { shape: 'rect', x: 35, y: 58, width: 50, height: 14, rx: 7, kind: 'body' }
         ]
     },
     D: {
         connectors: [
-            { shape: 'circle', cx: 60, cy: 18, r: 6, kind: 'ground' },
-            { shape: 'circle', cx: 38, cy: 50, r: 6 },
-            { shape: 'circle', cx: 82, cy: 50, r: 6 }
+            { shape: 'circle', cx: 60, cy: 16, r: 8, kind: 'ground' },
+            { shape: 'circle', cx: 36, cy: 52, r: 8 },
+            { shape: 'circle', cx: 84, cy: 52, r: 8 }
+        ],
+        extras: [
+            // Add Indian plug body
+            { shape: 'rect', x: 25, y: 62, width: 70, height: 12, rx: 6, kind: 'body' }
         ]
     },
     E: {
         connectors: [
-            { shape: 'circle', cx: 44, cy: 38, r: 6 },
-            { shape: 'circle', cx: 76, cy: 38, r: 6 },
-            { shape: 'circle', cx: 60, cy: 26, r: 4.5, kind: 'ground' }
+            { shape: 'circle', cx: 42, cy: 40, r: 7 },
+            { shape: 'circle', cx: 78, cy: 40, r: 7 },
+            { shape: 'circle', cx: 60, cy: 24, r: 5.5, kind: 'ground' }
+        ],
+        extras: [
+            { shape: 'rect', x: 32, y: 60, width: 56, height: 14, rx: 7, kind: 'body' }
         ]
     },
     F: {
         connectors: [
-            { shape: 'circle', cx: 44, cy: 36, r: 6 },
-            { shape: 'circle', cx: 76, cy: 36, r: 6 }
+            { shape: 'circle', cx: 42, cy: 36, r: 7 },
+            { shape: 'circle', cx: 78, cy: 36, r: 7 }
         ],
         extras: [
-            { shape: 'rect', x: 22, y: 30, width: 6, height: 20, rx: 2, kind: 'clip' },
-            { shape: 'rect', x: 92, y: 30, width: 6, height: 20, rx: 2, kind: 'clip' }
+            // Schuko grounding clips - make them more prominent
+            { shape: 'rect', x: 18, y: 28, width: 8, height: 24, rx: 3, kind: 'clip' },
+            { shape: 'rect', x: 94, y: 28, width: 8, height: 24, rx: 3, kind: 'clip' },
+            { shape: 'rect', x: 32, y: 58, width: 56, height: 16, rx: 8, kind: 'body' }
         ]
     },
     G: {
         connectors: [
-            { shape: 'rect', x: 36, y: 40, width: 10, height: 30, rx: 2 },
-            { shape: 'rect', x: 74, y: 40, width: 10, height: 30, rx: 2 },
-            { shape: 'rect', x: 55, y: 10, width: 10, height: 28, rx: 2, kind: 'ground' }
+            { shape: 'rect', x: 34, y: 42, width: 12, height: 28, rx: 3 },
+            { shape: 'rect', x: 74, y: 42, width: 12, height: 28, rx: 3 },
+            { shape: 'rect', x: 54, y: 8, width: 12, height: 32, rx: 3, kind: 'ground' }
+        ],
+        extras: [
+            // UK plug body - make it more distinctive
+            { shape: 'rect', x: 28, y: 72, width: 64, height: 6, rx: 3, kind: 'body' }
         ]
     },
     H: {
         connectors: [
-            { shape: 'rect', x: 34, y: 26, width: 8, height: 34, rx: 3, transform: 'rotate(-20 38 43)' },
-            { shape: 'rect', x: 78, y: 26, width: 8, height: 34, rx: 3, transform: 'rotate(20 82 43)' },
-            { shape: 'rect', x: 55, y: 12, width: 10, height: 36, rx: 3, kind: 'ground' }
+            { shape: 'rect', x: 32, y: 24, width: 10, height: 36, rx: 3, transform: 'rotate(-22 37 42)' },
+            { shape: 'rect', x: 78, y: 24, width: 10, height: 36, rx: 3, transform: 'rotate(22 83 42)' },
+            { shape: 'rect', x: 55, y: 10, width: 12, height: 38, rx: 3, kind: 'ground' }
+        ],
+        extras: [
+            // Israeli plug body
+            { shape: 'rect', x: 30, y: 60, width: 60, height: 14, rx: 7, kind: 'body' }
         ]
     },
     I: {
         connectors: [
-            { shape: 'rect', x: 36, y: 28, width: 8, height: 32, rx: 3, transform: 'rotate(-12 40 44)' },
-            { shape: 'rect', x: 76, y: 28, width: 8, height: 32, rx: 3, transform: 'rotate(12 80 44)' },
-            { shape: 'rect', x: 55, y: 12, width: 10, height: 36, rx: 3, kind: 'ground' }
+            { shape: 'rect', x: 34, y: 26, width: 10, height: 34, rx: 3, transform: 'rotate(-15 39 43)' },
+            { shape: 'rect', x: 76, y: 26, width: 10, height: 34, rx: 3, transform: 'rotate(15 81 43)' },
+            { shape: 'rect', x: 55, y: 10, width: 12, height: 38, rx: 3, kind: 'ground' }
+        ],
+        extras: [
+            { shape: 'rect', x: 30, y: 60, width: 60, height: 14, rx: 7, kind: 'body' }
         ]
     },
     J: {
         connectors: [
-            { shape: 'circle', cx: 42, cy: 40, r: 6 },
-            { shape: 'circle', cx: 78, cy: 40, r: 6 },
-            { shape: 'circle', cx: 60, cy: 22, r: 5, kind: 'ground' }
+            { shape: 'circle', cx: 40, cy: 42, r: 7 },
+            { shape: 'circle', cx: 80, cy: 42, r: 7 },
+            { shape: 'circle', cx: 60, cy: 20, r: 6, kind: 'ground' }
+        ],
+        extras: [
+            // Swiss plug distinctive shape
+            { shape: 'rect', x: 28, y: 62, width: 64, height: 12, rx: 6, kind: 'body' }
         ]
     },
     K: {
         connectors: [
-            { shape: 'circle', cx: 44, cy: 36, r: 6 },
-            { shape: 'circle', cx: 76, cy: 36, r: 6 },
-            { shape: 'circle', cx: 92, cy: 22, r: 5, kind: 'ground' }
+            { shape: 'circle', cx: 42, cy: 36, r: 7 },
+            { shape: 'circle', cx: 78, cy: 36, r: 7 },
+            { shape: 'circle', cx: 96, cy: 20, r: 6, kind: 'ground' }
+        ],
+        extras: [
+            // Danish plug body
+            { shape: 'rect', x: 32, y: 58, width: 56, height: 16, rx: 8, kind: 'body' }
         ]
     },
     L: {
         connectors: [
-            { shape: 'circle', cx: 60, cy: 18, r: 5, kind: 'ground' },
-            { shape: 'circle', cx: 60, cy: 38, r: 5 },
-            { shape: 'circle', cx: 60, cy: 58, r: 5 }
+            { shape: 'circle', cx: 60, cy: 16, r: 6, kind: 'ground' },
+            { shape: 'circle', cx: 60, cy: 36, r: 6 },
+            { shape: 'circle', cx: 60, cy: 56, r: 6 }
+        ],
+        extras: [
+            // Italian plug inline configuration
+            { shape: 'rect', x: 45, y: 66, width: 30, height: 10, rx: 5, kind: 'body' }
         ]
     },
     M: {
         connectors: [
-            { shape: 'circle', cx: 60, cy: 18, r: 7, kind: 'ground' },
-            { shape: 'circle', cx: 36, cy: 52, r: 7 },
-            { shape: 'circle', cx: 84, cy: 52, r: 7 }
+            { shape: 'circle', cx: 60, cy: 16, r: 8, kind: 'ground' },
+            { shape: 'circle', cx: 34, cy: 54, r: 8 },
+            { shape: 'circle', cx: 86, cy: 54, r: 8 }
+        ],
+        extras: [
+            // South African large plug body
+            { shape: 'rect', x: 22, y: 66, width: 76, height: 10, rx: 5, kind: 'body' }
         ]
     },
     N: {
         connectors: [
-            { shape: 'circle', cx: 44, cy: 36, r: 6 },
-            { shape: 'circle', cx: 76, cy: 36, r: 6 },
-            { shape: 'circle', cx: 60, cy: 20, r: 5, kind: 'ground' }
+            { shape: 'circle', cx: 42, cy: 38, r: 7 },
+            { shape: 'circle', cx: 78, cy: 38, r: 7 },
+            { shape: 'circle', cx: 60, cy: 18, r: 6, kind: 'ground' }
+        ],
+        extras: [
+            // Brazilian plug body
+            { shape: 'rect', x: 32, y: 60, width: 56, height: 14, rx: 7, kind: 'body' }
         ]
     }
 };
@@ -148,8 +199,18 @@ const plugStatusInfo = {
 
 function getConnectorFill(kind = 'pin', mode = 'plug') {
     const palettes = {
-        plug: { pin: '#c28a53', ground: '#a4682e', clip: '#98a6c2' },
-        socket: { pin: '#1f2a37', ground: '#0f172a', clip: '#465364' }
+        plug: { 
+            pin: '#c28a53', 
+            ground: '#a4682e', 
+            clip: '#98a6c2',
+            body: '#f5f5f5'
+        },
+        socket: { 
+            pin: '#1f2a37', 
+            ground: '#0f172a', 
+            clip: '#465364',
+            body: '#e5e7eb'
+        }
     };
     const palette = palettes[mode];
     return palette[kind] || palette.pin;
@@ -157,8 +218,18 @@ function getConnectorFill(kind = 'pin', mode = 'plug') {
 
 function getConnectorStroke(kind = 'pin', mode = 'plug') {
     const strokes = {
-        plug: { pin: '#8b5f2d', ground: '#74461c', clip: '#6e7787' },
-        socket: { pin: '#0b1220', ground: '#05070d', clip: '#1f2937' }
+        plug: { 
+            pin: '#8b5f2d', 
+            ground: '#74461c', 
+            clip: '#6e7787',
+            body: '#d1d5db'
+        },
+        socket: { 
+            pin: '#0b1220', 
+            ground: '#05070d', 
+            clip: '#1f2937',
+            body: '#9ca3af'
+        }
     };
     const palette = strokes[mode];
     return palette[kind] || palette.pin;
@@ -188,18 +259,31 @@ function renderPlugSvg(type, mode = 'plug') {
     const palette = plugSvgPalettes[mode];
     const connectorsMarkup = (blueprint.connectors || []).map(connector => renderConnector(connector, mode)).join('');
     const extrasMarkup = (blueprint.extras || []).map(extra => renderConnector(extra, mode)).join('');
+    
+    // Enhanced body shapes with more details
     const bodyShape = mode === 'plug'
-        ? `<path d="M20 18c0-10 8-18 18-18h44c10 0 18 8 18 18v44c0 10-8 18-18 18H38c-10 0-18-8-18-18V18z" fill="${palette.base}" stroke="${palette.baseStroke}" stroke-width="2"/>`
+        ? `<path d="M20 18c0-10 8-18 18-18h44c10 0 18 8 18 18v44c0 10-8 18-18 18H38c-10 0-18-8-18-18V18z" fill="${palette.base}" stroke="${palette.baseStroke}" stroke-width="2"/>
+           <rect x="22" y="2" width="76" height="8" rx="4" fill="${palette.highlight}" opacity="0.6"/>`
         : `<rect x="12" y="14" width="96" height="52" rx="14" fill="${palette.base}" stroke="${palette.baseStroke}" stroke-width="2"/>`;
+    
     const highlight = mode === 'plug'
-        ? `<rect x="30" y="18" width="60" height="10" rx="5" fill="${palette.highlight}" opacity="0.75"/>`
+        ? `<rect x="30" y="18" width="60" height="10" rx="5" fill="${palette.highlight}" opacity="0.75"/>
+           <ellipse cx="60" cy="40" rx="25" ry="8" fill="${palette.highlight}" opacity="0.3"/>`
         : `<rect x="20" y="22" width="80" height="36" rx="10" fill="${palette.highlight}" opacity="0.9"/>`;
+    
     return `
         <svg viewBox="0 0 120 80" role="img" aria-label="Type ${type} ${mode === 'plug' ? 'plug' : 'socket'} illustration" xmlns="http://www.w3.org/2000/svg">
-            ${bodyShape}
-            ${highlight}
-            ${connectorsMarkup}
-            ${extrasMarkup}
+            <defs>
+                <filter id="shadow-${type}-${mode}" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+                </filter>
+            </defs>
+            <g filter="url(#shadow-${type}-${mode})">
+                ${bodyShape}
+                ${highlight}
+                ${connectorsMarkup}
+                ${extrasMarkup}
+            </g>
         </svg>
     `;
 }
