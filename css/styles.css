@@ -265,6 +265,130 @@ body {
     background: var(--danger);
 }
 
+.plug-photo-section {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.country-plug-gallery {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: var(--shadow);
+}
+
+.country-plug-gallery h4 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.plug-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+.plug-photo-card {
+    background: var(--light);
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.plug-photo-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.plug-photo-card.card-match {
+    border-color: var(--success);
+}
+
+.plug-photo-card.card-adapter {
+    border-color: var(--danger);
+}
+
+.plug-photo-card.card-home {
+    border-color: var(--primary);
+    background: rgba(37, 99, 235, 0.08);
+}
+
+.plug-photo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.plug-type-label {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.plug-status {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.status-match {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success);
+}
+
+.status-adapter {
+    background: rgba(239, 68, 68, 0.12);
+    color: var(--danger);
+}
+
+.status-home {
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--primary);
+}
+
+.plug-visual-pair {
+    display: flex;
+    gap: 10px;
+}
+
+.plug-visual {
+    flex: 1;
+    background: var(--white);
+    border-radius: 10px;
+    padding: 6px;
+    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.05);
+}
+
+.plug-visual svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.plug-photo-card p {
+    font-size: 0.8rem;
+    color: var(--gray);
+    line-height: 1.4;
+}
+
+.plug-photo-empty {
+    font-size: 0.85rem;
+    color: var(--gray);
+}
+
 /* ===== Plug Types Section ===== */
 .plug-types-section {
     background: var(--white);
@@ -562,6 +686,14 @@ body {
     .filter-btn {
         padding: 8px 14px;
         font-size: 0.8rem;
+    }
+
+    .plug-photo-section {
+        grid-template-columns: 1fr;
+    }
+
+    .plug-photo-grid {
+        grid-template-columns: 1fr;
     }
 }
 

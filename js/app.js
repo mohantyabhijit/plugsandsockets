@@ -24,6 +24,249 @@ const plugIcons = {
     'K': '⭕', 'L': '⭕', 'M': '🔌', 'N': '⭕'
 };
 
+// Plug + socket illustration blueprints (ViewBox 0 0 120 80)
+const plugVisualBlueprints = {
+    A: {
+        connectors: [
+            { shape: 'rect', x: 34, y: 14, width: 10, height: 40, rx: 3 },
+            { shape: 'rect', x: 66, y: 14, width: 10, height: 40, rx: 3 }
+        ]
+    },
+    B: {
+        connectors: [
+            { shape: 'rect', x: 34, y: 14, width: 10, height: 40, rx: 3 },
+            { shape: 'rect', x: 66, y: 14, width: 10, height: 40, rx: 3 },
+            { shape: 'rect', x: 50, y: 2, width: 10, height: 26, rx: 3, kind: 'ground' }
+        ]
+    },
+    C: {
+        connectors: [
+            { shape: 'circle', cx: 44, cy: 36, r: 6 },
+            { shape: 'circle', cx: 76, cy: 36, r: 6 }
+        ]
+    },
+    D: {
+        connectors: [
+            { shape: 'circle', cx: 60, cy: 18, r: 6, kind: 'ground' },
+            { shape: 'circle', cx: 38, cy: 50, r: 6 },
+            { shape: 'circle', cx: 82, cy: 50, r: 6 }
+        ]
+    },
+    E: {
+        connectors: [
+            { shape: 'circle', cx: 44, cy: 38, r: 6 },
+            { shape: 'circle', cx: 76, cy: 38, r: 6 },
+            { shape: 'circle', cx: 60, cy: 26, r: 4.5, kind: 'ground' }
+        ]
+    },
+    F: {
+        connectors: [
+            { shape: 'circle', cx: 44, cy: 36, r: 6 },
+            { shape: 'circle', cx: 76, cy: 36, r: 6 }
+        ],
+        extras: [
+            { shape: 'rect', x: 22, y: 30, width: 6, height: 20, rx: 2, kind: 'clip' },
+            { shape: 'rect', x: 92, y: 30, width: 6, height: 20, rx: 2, kind: 'clip' }
+        ]
+    },
+    G: {
+        connectors: [
+            { shape: 'rect', x: 36, y: 40, width: 10, height: 30, rx: 2 },
+            { shape: 'rect', x: 74, y: 40, width: 10, height: 30, rx: 2 },
+            { shape: 'rect', x: 55, y: 10, width: 10, height: 28, rx: 2, kind: 'ground' }
+        ]
+    },
+    H: {
+        connectors: [
+            { shape: 'rect', x: 34, y: 26, width: 8, height: 34, rx: 3, transform: 'rotate(-20 38 43)' },
+            { shape: 'rect', x: 78, y: 26, width: 8, height: 34, rx: 3, transform: 'rotate(20 82 43)' },
+            { shape: 'rect', x: 55, y: 12, width: 10, height: 36, rx: 3, kind: 'ground' }
+        ]
+    },
+    I: {
+        connectors: [
+            { shape: 'rect', x: 36, y: 28, width: 8, height: 32, rx: 3, transform: 'rotate(-12 40 44)' },
+            { shape: 'rect', x: 76, y: 28, width: 8, height: 32, rx: 3, transform: 'rotate(12 80 44)' },
+            { shape: 'rect', x: 55, y: 12, width: 10, height: 36, rx: 3, kind: 'ground' }
+        ]
+    },
+    J: {
+        connectors: [
+            { shape: 'circle', cx: 42, cy: 40, r: 6 },
+            { shape: 'circle', cx: 78, cy: 40, r: 6 },
+            { shape: 'circle', cx: 60, cy: 22, r: 5, kind: 'ground' }
+        ]
+    },
+    K: {
+        connectors: [
+            { shape: 'circle', cx: 44, cy: 36, r: 6 },
+            { shape: 'circle', cx: 76, cy: 36, r: 6 },
+            { shape: 'circle', cx: 92, cy: 22, r: 5, kind: 'ground' }
+        ]
+    },
+    L: {
+        connectors: [
+            { shape: 'circle', cx: 60, cy: 18, r: 5, kind: 'ground' },
+            { shape: 'circle', cx: 60, cy: 38, r: 5 },
+            { shape: 'circle', cx: 60, cy: 58, r: 5 }
+        ]
+    },
+    M: {
+        connectors: [
+            { shape: 'circle', cx: 60, cy: 18, r: 7, kind: 'ground' },
+            { shape: 'circle', cx: 36, cy: 52, r: 7 },
+            { shape: 'circle', cx: 84, cy: 52, r: 7 }
+        ]
+    },
+    N: {
+        connectors: [
+            { shape: 'circle', cx: 44, cy: 36, r: 6 },
+            { shape: 'circle', cx: 76, cy: 36, r: 6 },
+            { shape: 'circle', cx: 60, cy: 20, r: 5, kind: 'ground' }
+        ]
+    }
+};
+
+const plugSvgPalettes = {
+    plug: {
+        base: '#fff7ec',
+        baseStroke: '#ddcab7',
+        highlight: '#f8ede0'
+    },
+    socket: {
+        base: '#f4f6fb',
+        baseStroke: '#cad4e6',
+        highlight: '#e6ecf7'
+    }
+};
+
+const plugStatusInfo = {
+    match: { text: 'Works abroad', chipClass: 'status-match', cardClass: 'card-match' },
+    adapter: { text: 'Adapter needed', chipClass: 'status-adapter', cardClass: 'card-adapter' },
+    home: { text: 'Home plug', chipClass: 'status-home', cardClass: 'card-home' }
+};
+
+function getConnectorFill(kind = 'pin', mode = 'plug') {
+    const palettes = {
+        plug: { pin: '#c28a53', ground: '#a4682e', clip: '#98a6c2' },
+        socket: { pin: '#1f2a37', ground: '#0f172a', clip: '#465364' }
+    };
+    const palette = palettes[mode];
+    return palette[kind] || palette.pin;
+}
+
+function getConnectorStroke(kind = 'pin', mode = 'plug') {
+    const strokes = {
+        plug: { pin: '#8b5f2d', ground: '#74461c', clip: '#6e7787' },
+        socket: { pin: '#0b1220', ground: '#05070d', clip: '#1f2937' }
+    };
+    const palette = strokes[mode];
+    return palette[kind] || palette.pin;
+}
+
+function renderConnector(connector, mode) {
+    if (!connector) return '';
+    const fill = getConnectorFill(connector.kind, mode);
+    const stroke = getConnectorStroke(connector.kind, mode);
+    const transformAttr = connector.transform ? ` transform="${connector.transform}"` : '';
+    if (connector.shape === 'rect') {
+        const rx = connector.rx ?? 3;
+        const ryAttr = connector.ry !== undefined ? ` ry="${connector.ry}"` : '';
+        return `<rect x="${connector.x}" y="${connector.y}" width="${connector.width}" height="${connector.height}" rx="${rx}"${ryAttr} fill="${fill}" stroke="${stroke}" stroke-width="1.5"${transformAttr} />`;
+    }
+    if (connector.shape === 'circle') {
+        return `<circle cx="${connector.cx}" cy="${connector.cy}" r="${connector.r}" fill="${fill}" stroke="${stroke}" stroke-width="1.5"${transformAttr} />`;
+    }
+    return '';
+}
+
+function renderPlugSvg(type, mode = 'plug') {
+    const blueprint = plugVisualBlueprints[type];
+    if (!blueprint) {
+        return `<div class="plug-visual-placeholder">Type ${type}</div>`;
+    }
+    const palette = plugSvgPalettes[mode];
+    const connectorsMarkup = (blueprint.connectors || []).map(connector => renderConnector(connector, mode)).join('');
+    const extrasMarkup = (blueprint.extras || []).map(extra => renderConnector(extra, mode)).join('');
+    const bodyShape = mode === 'plug'
+        ? `<path d="M20 18c0-10 8-18 18-18h44c10 0 18 8 18 18v44c0 10-8 18-18 18H38c-10 0-18-8-18-18V18z" fill="${palette.base}" stroke="${palette.baseStroke}" stroke-width="2"/>`
+        : `<rect x="12" y="14" width="96" height="52" rx="14" fill="${palette.base}" stroke="${palette.baseStroke}" stroke-width="2"/>`;
+    const highlight = mode === 'plug'
+        ? `<rect x="30" y="18" width="60" height="10" rx="5" fill="${palette.highlight}" opacity="0.75"/>`
+        : `<rect x="20" y="22" width="80" height="36" rx="10" fill="${palette.highlight}" opacity="0.9"/>`;
+    return `
+        <svg viewBox="0 0 120 80" role="img" aria-label="Type ${type} ${mode === 'plug' ? 'plug' : 'socket'} illustration" xmlns="http://www.w3.org/2000/svg">
+            ${bodyShape}
+            ${highlight}
+            ${connectorsMarkup}
+            ${extrasMarkup}
+        </svg>
+    `;
+}
+
+function renderPlugPhotoCard(type, status = 'neutral') {
+    const plugTypeInfo = countriesData?.plugTypes?.[type];
+    const description = plugTypeInfo?.description || 'Plug illustration';
+    const statusDetails = plugStatusInfo[status] || null;
+    const statusChip = statusDetails
+        ? `<span class="plug-status ${statusDetails.chipClass}">${statusDetails.text}</span>`
+        : '';
+    const statusClass = statusDetails ? statusDetails.cardClass : '';
+    return `
+        <div class="plug-photo-card ${statusClass}">
+            <div class="plug-photo-header">
+                <span class="plug-type-label">Type ${type}</span>
+                ${statusChip}
+            </div>
+            <div class="plug-visual-pair">
+                <div class="plug-visual plug">${renderPlugSvg(type, 'plug')}</div>
+                <div class="plug-visual socket">${renderPlugSvg(type, 'socket')}</div>
+            </div>
+            <p>${description}</p>
+        </div>
+    `;
+}
+
+function renderCountryPlugGallery(country, options = {}) {
+    if (!country) return '';
+    const heading = options.heading || `${country.name} plug styles`;
+    const statusFn = options.statusFn || (() => 'neutral');
+    const plugTypes = country.plugTypes || [];
+    if (!plugTypes.length) {
+        return `
+            <div class="country-plug-gallery">
+                <h4>${heading}</h4>
+                <p class="plug-photo-empty">No plug information available.</p>
+            </div>
+        `;
+    }
+    const cards = plugTypes.map(type => renderPlugPhotoCard(type, statusFn(type))).join('');
+    return `
+        <div class="country-plug-gallery">
+            <h4>${heading}</h4>
+            <div class="plug-photo-grid">
+                ${cards}
+            </div>
+        </div>
+    `;
+}
+
+function buildPlugVisualSection(home, dest, compatibleTypes) {
+    if (!home || !dest) return '';
+    return `
+        <div class="plug-photo-section">
+            ${renderCountryPlugGallery(home, {
+                heading: `${countryFlags[home.code] || '🌍'} ${home.name} plug styles`,
+                statusFn: type => (compatibleTypes.includes(type) ? 'match' : 'home')
+            })}
+            ${renderCountryPlugGallery(dest, {
+                heading: `${countryFlags[dest.code] || '🌍'} ${dest.name} socket styles`,
+                statusFn: type => (compatibleTypes.includes(type) ? 'match' : 'adapter')
+            })}
+        </div>
+    `;
+}
+
 // Priority countries to show first in dropdowns
 const priorityCountries = [
     'United States', 'United Kingdom', 'India', 'Singapore',
@@ -175,6 +418,8 @@ function handleCheck(e) {
             Check if your devices support this voltage, or bring a converter.
         </p>`;
     }
+
+    const plugVisualSection = buildPlugVisualSection(home, dest, compatible);
     
     const resultHTML = `
         <h3>${title}</h3>
@@ -198,6 +443,7 @@ function handleCheck(e) {
                 <small>${dest.voltage} / ${dest.frequency}</small>
             </div>
         </div>
+        ${plugVisualSection}
         ${voltageWarning}
         ${dest.notes ? `<p class="country-notes">💡 <strong>Tip:</strong> ${dest.notes}</p>` : ''}
     `;
