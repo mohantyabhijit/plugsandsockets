@@ -25,158 +25,200 @@ const plugIcons = {
 };
 
 // Enhanced plug visual blueprints with more detail (ViewBox 0 0 120 80)
-const plugVisualBlueprints = {
-    A: {
-        connectors: [
-            { shape: 'rect', x: 32, y: 12, width: 12, height: 46, rx: 4 },
-            { shape: 'rect', x: 66, y: 12, width: 12, height: 46, rx: 4 }
-        ],
-        extras: [
-            // Add plastic body detail
-            { shape: 'rect', x: 30, y: 60, width: 60, height: 8, rx: 4, kind: 'body' }
-        ]
+// ===== SVG Icon System Configuration =====
+const SVG_CONFIG = {
+    // SVG canvas settings
+    viewBox: { width: 120, height: 80 },
+    
+    // Responsive size settings  
+    sizes: {
+        desktop: { width: 120, height: 80 },
+        tablet: { width: 100, height: 67 },
+        mobile: { width: 80, height: 53 }
     },
-    B: {
-        connectors: [
-            { shape: 'rect', x: 32, y: 16, width: 12, height: 42, rx: 4 },
-            { shape: 'rect', x: 66, y: 16, width: 12, height: 42, rx: 4 },
-            { shape: 'rect', x: 54, y: 2, width: 12, height: 30, rx: 4, kind: 'ground' }
-        ],
-        extras: [
-            { shape: 'rect', x: 30, y: 60, width: 60, height: 8, rx: 4, kind: 'body' }
-        ]
+    
+    // Color theme
+    colors: {
+        pin: '#8B5A2B',        // Brown pin color
+        pinHole: '#654321',    // Darker brown for holes
+        ground: '#6B4423',     // Slightly darker for ground
+        body: '#F5F5DC',       // Beige body color
+        bodyStroke: '#D2B48C', // Tan stroke
+        socket: '#E8E8E8',     // Light gray socket
+        accent: '#A0522D',     // Saddle brown accent
+        clip: '#8B7355'        // Grounding clip color
     },
-    C: {
-        connectors: [
-            { shape: 'circle', cx: 42, cy: 36, r: 7 },
-            { shape: 'circle', cx: 78, cy: 36, r: 7 }
-        ],
-        extras: [
-            // Add Europlug body outline
-            { shape: 'rect', x: 35, y: 58, width: 50, height: 14, rx: 7, kind: 'body' }
-        ]
-    },
-    D: {
-        connectors: [
-            { shape: 'circle', cx: 60, cy: 16, r: 8, kind: 'ground' },
-            { shape: 'circle', cx: 36, cy: 52, r: 8 },
-            { shape: 'circle', cx: 84, cy: 52, r: 8 }
-        ],
-        extras: [
-            // Add Indian plug body
-            { shape: 'rect', x: 25, y: 62, width: 70, height: 12, rx: 6, kind: 'body' }
-        ]
-    },
-    E: {
-        connectors: [
-            { shape: 'circle', cx: 42, cy: 40, r: 7 },
-            { shape: 'circle', cx: 78, cy: 40, r: 7 },
-            { shape: 'circle', cx: 60, cy: 24, r: 5.5, kind: 'ground' }
-        ],
-        extras: [
-            { shape: 'rect', x: 32, y: 60, width: 56, height: 14, rx: 7, kind: 'body' }
-        ]
-    },
-    F: {
-        connectors: [
-            { shape: 'circle', cx: 42, cy: 36, r: 7 },
-            { shape: 'circle', cx: 78, cy: 36, r: 7 }
-        ],
-        extras: [
-            // Schuko grounding clips - make them more prominent
-            { shape: 'rect', x: 18, y: 28, width: 8, height: 24, rx: 3, kind: 'clip' },
-            { shape: 'rect', x: 94, y: 28, width: 8, height: 24, rx: 3, kind: 'clip' },
-            { shape: 'rect', x: 32, y: 58, width: 56, height: 16, rx: 8, kind: 'body' }
-        ]
-    },
-    G: {
-        connectors: [
-            { shape: 'rect', x: 34, y: 42, width: 12, height: 28, rx: 3 },
-            { shape: 'rect', x: 74, y: 42, width: 12, height: 28, rx: 3 },
-            { shape: 'rect', x: 54, y: 8, width: 12, height: 32, rx: 3, kind: 'ground' }
-        ],
-        extras: [
-            // UK plug body - make it more distinctive
-            { shape: 'rect', x: 28, y: 72, width: 64, height: 6, rx: 3, kind: 'body' }
-        ]
-    },
-    H: {
-        connectors: [
-            { shape: 'rect', x: 32, y: 24, width: 10, height: 36, rx: 3, transform: 'rotate(-22 37 42)' },
-            { shape: 'rect', x: 78, y: 24, width: 10, height: 36, rx: 3, transform: 'rotate(22 83 42)' },
-            { shape: 'rect', x: 55, y: 10, width: 12, height: 38, rx: 3, kind: 'ground' }
-        ],
-        extras: [
-            // Israeli plug body
-            { shape: 'rect', x: 30, y: 60, width: 60, height: 14, rx: 7, kind: 'body' }
-        ]
-    },
-    I: {
-        connectors: [
-            { shape: 'rect', x: 34, y: 26, width: 10, height: 34, rx: 3, transform: 'rotate(-15 39 43)' },
-            { shape: 'rect', x: 76, y: 26, width: 10, height: 34, rx: 3, transform: 'rotate(15 81 43)' },
-            { shape: 'rect', x: 55, y: 10, width: 12, height: 38, rx: 3, kind: 'ground' }
-        ],
-        extras: [
-            { shape: 'rect', x: 30, y: 60, width: 60, height: 14, rx: 7, kind: 'body' }
-        ]
-    },
-    J: {
-        connectors: [
-            { shape: 'circle', cx: 40, cy: 42, r: 7 },
-            { shape: 'circle', cx: 80, cy: 42, r: 7 },
-            { shape: 'circle', cx: 60, cy: 20, r: 6, kind: 'ground' }
-        ],
-        extras: [
-            // Swiss plug distinctive shape
-            { shape: 'rect', x: 28, y: 62, width: 64, height: 12, rx: 6, kind: 'body' }
-        ]
-    },
-    K: {
-        connectors: [
-            { shape: 'circle', cx: 42, cy: 36, r: 7 },
-            { shape: 'circle', cx: 78, cy: 36, r: 7 },
-            { shape: 'circle', cx: 96, cy: 20, r: 6, kind: 'ground' }
-        ],
-        extras: [
-            // Danish plug body
-            { shape: 'rect', x: 32, y: 58, width: 56, height: 16, rx: 8, kind: 'body' }
-        ]
-    },
-    L: {
-        connectors: [
-            { shape: 'circle', cx: 60, cy: 16, r: 6, kind: 'ground' },
-            { shape: 'circle', cx: 60, cy: 36, r: 6 },
-            { shape: 'circle', cx: 60, cy: 56, r: 6 }
-        ],
-        extras: [
-            // Italian plug inline configuration
-            { shape: 'rect', x: 45, y: 66, width: 30, height: 10, rx: 5, kind: 'body' }
-        ]
-    },
-    M: {
-        connectors: [
-            { shape: 'circle', cx: 60, cy: 16, r: 8, kind: 'ground' },
-            { shape: 'circle', cx: 34, cy: 54, r: 8 },
-            { shape: 'circle', cx: 86, cy: 54, r: 8 }
-        ],
-        extras: [
-            // South African large plug body
-            { shape: 'rect', x: 22, y: 66, width: 76, height: 10, rx: 5, kind: 'body' }
-        ]
-    },
-    N: {
-        connectors: [
-            { shape: 'circle', cx: 42, cy: 38, r: 7 },
-            { shape: 'circle', cx: 78, cy: 38, r: 7 },
-            { shape: 'circle', cx: 60, cy: 18, r: 6, kind: 'ground' }
-        ],
-        extras: [
-            // Brazilian plug body
-            { shape: 'rect', x: 32, y: 60, width: 56, height: 14, rx: 7, kind: 'body' }
-        ]
+    
+    // Common styles
+    styles: {
+        pinStyle: 'fill:#8B5A2B;stroke:#654321;stroke-width:1.2',
+        groundStyle: 'fill:#6B4423;stroke:#543018;stroke-width:1.2', 
+        bodyStyle: 'fill:#F5F5DC;stroke:#D2B48C;stroke-width:1.5',
+        socketStyle: 'fill:#E8E8E8;stroke:#CCCCCC;stroke-width:1',
+        clipStyle: 'fill:#8B7355;stroke:#6B5B42;stroke-width:1'
     }
 };
+
+// Enhanced plug specifications with accurate real-world dimensions and features
+const PLUG_SPECIFICATIONS = {
+    A: {
+        name: 'Type A (NEMA 1-15)',
+        pins: [
+            { type: 'flat', x: 42, y: 25, width: 6, height: 30, rotation: 0 },
+            { type: 'flat', x: 72, y: 25, width: 6, height: 30, rotation: 0 }
+        ],
+        body: { x: 35, y: 58, width: 50, height: 15, radius: 5 },
+        features: ['polarized_capable']
+    },
+    
+    B: {
+        name: 'Type B (NEMA 5-15)',
+        pins: [
+            { type: 'flat', x: 42, y: 28, width: 6, height: 25, rotation: 0 },
+            { type: 'flat', x: 72, y: 28, width: 6, height: 25, rotation: 0 },
+            { type: 'round_ground', x: 57, y: 15, radius: 4 }
+        ],
+        body: { x: 32, y: 58, width: 56, height: 15, radius: 6 },
+        features: ['grounded', 'polarized']
+    },
+    
+    C: {
+        name: 'Type C (Europlug)', 
+        pins: [
+            { type: 'round', x: 45, y: 35, radius: 4 },
+            { type: 'round', x: 75, y: 35, radius: 4 }
+        ],
+        body: { x: 38, y: 50, width: 44, height: 22, radius: 8 },
+        features: ['universal', 'compact']
+    },
+    
+    D: {
+        name: 'Type D (Indian)',
+        pins: [
+            { type: 'round_ground', x: 60, y: 20, radius: 5 },
+            { type: 'round', x: 45, y: 48, radius: 5 },
+            { type: 'round', x: 75, y: 48, radius: 5 }
+        ],
+        body: { x: 30, y: 58, width: 60, height: 16, radius: 6 },
+        features: ['grounded', 'triangular_layout']
+    },
+    
+    E: {
+        name: 'Type E (French)',
+        pins: [
+            { type: 'round', x: 45, y: 38, radius: 5 },
+            { type: 'round', x: 75, y: 38, radius: 5 }
+        ],
+        socket_ground: { x: 56, y: 22, width: 8, height: 4 },
+        body: { x: 35, y: 55, width: 50, height: 18, radius: 7 },
+        features: ['grounded', 'socket_earth']
+    },
+    
+    F: {
+        name: 'Type F (Schuko)',
+        pins: [
+            { type: 'round', x: 45, y: 35, radius: 5 },
+            { type: 'round', x: 75, y: 35, radius: 5 }
+        ],
+        clips: [
+            { x: 25, y: 28, width: 6, height: 24, radius: 2 },
+            { x: 89, y: 28, width: 6, height: 24, radius: 2 }
+        ],
+        body: { x: 32, y: 55, width: 56, height: 18, radius: 8 },
+        features: ['grounded', 'side_clips']
+    },
+    
+    G: {
+        name: 'Type G (UK)',
+        pins: [
+            { type: 'flat', x: 42, y: 38, width: 8, height: 22, rotation: 0 },
+            { type: 'flat', x: 70, y: 38, width: 8, height: 22, rotation: 0 },
+            { type: 'flat_ground', x: 56, y: 18, width: 8, height: 18 }
+        ],
+        body: { x: 28, y: 62, width: 64, height: 12, radius: 4 },
+        features: ['grounded', 'fused', 'shuttered']
+    },
+    
+    H: {
+        name: 'Type H (Israeli)',
+        pins: [
+            { type: 'flat', x: 40, y: 32, width: 6, height: 24, rotation: -15 },
+            { type: 'flat', x: 74, y: 32, width: 6, height: 24, rotation: 15 },
+            { type: 'round_ground', x: 57, y: 18, radius: 4 }
+        ],
+        body: { x: 32, y: 58, width: 56, height: 16, radius: 6 },
+        features: ['grounded', 'angled_pins']
+    },
+    
+    I: {
+        name: 'Type I (Australian)',
+        pins: [
+            { type: 'flat', x: 42, y: 32, width: 6, height: 20, rotation: -30 },
+            { type: 'flat', x: 72, y: 32, width: 6, height: 20, rotation: 30 },
+            { type: 'round_ground', x: 57, y: 15, radius: 4 }
+        ],
+        body: { x: 32, y: 55, width: 56, height: 18, radius: 7 },
+        features: ['grounded', 'angled_pins', 'insulated']
+    },
+    
+    J: {
+        name: 'Type J (Swiss)',
+        pins: [
+            { type: 'round', x: 42, y: 42, radius: 5 },
+            { type: 'round', x: 78, y: 42, radius: 5 },
+            { type: 'round_ground', x: 60, y: 22, radius: 4 }
+        ],
+        body: { x: 32, y: 58, width: 56, height: 16, radius: 6 },
+        features: ['grounded', 'hexagonal_layout']
+    },
+    
+    K: {
+        name: 'Type K (Danish)',
+        pins: [
+            { type: 'round', x: 45, y: 38, radius: 5 },
+            { type: 'round', x: 75, y: 38, radius: 5 },
+            { type: 'round_ground', x: 60, y: 20, radius: 4 }
+        ],
+        body: { x: 35, y: 55, width: 50, height: 18, radius: 7 },
+        features: ['grounded', 'semi_circular']
+    },
+    
+    L: {
+        name: 'Type L (Italian)',
+        pins: [
+            { type: 'round', x: 60, y: 25, radius: 4 },
+            { type: 'round', x: 45, y: 45, radius: 4 },
+            { type: 'round', x: 75, y: 45, radius: 4 }
+        ],
+        body: { x: 38, y: 58, width: 44, height: 16, radius: 6 },
+        features: ['grounded', 'inline_layout']
+    },
+    
+    M: {
+        name: 'Type M (South African)',
+        pins: [
+            { type: 'round_ground', x: 60, y: 18, radius: 6 },
+            { type: 'round', x: 42, y: 48, radius: 6 },
+            { type: 'round', x: 78, y: 48, radius: 6 }
+        ],
+        body: { x: 28, y: 58, width: 64, height: 16, radius: 6 },
+        features: ['grounded', 'large_pins']
+    },
+    
+    N: {
+        name: 'Type N (Brazilian)',
+        pins: [
+            { type: 'round', x: 45, y: 38, radius: 5 },
+            { type: 'round', x: 75, y: 38, radius: 5 },
+            { type: 'round_ground', x: 60, y: 22, radius: 4 }
+        ],
+        body: { x: 35, y: 55, width: 50, height: 18, radius: 7 },
+        features: ['grounded', 'modern_design']
+    }
+};
+
+// Legacy adapter for backward compatibility
+const plugVisualBlueprints = PLUG_SPECIFICATIONS;
 
 const plugSvgPalettes = {
     plug: {
@@ -251,38 +293,139 @@ function renderConnector(connector, mode) {
     return '';
 }
 
+// ===== Responsive SVG Generation System =====
+
+// Get responsive size based on screen width
+function getResponsiveSize() {
+    const width = window.innerWidth;
+    if (width < 576) return SVG_CONFIG.sizes.mobile;
+    if (width < 992) return SVG_CONFIG.sizes.tablet;
+    return SVG_CONFIG.sizes.desktop;
+}
+
+// Create pin/connector element
+function createPin(pin) {
+    const { colors, styles } = SVG_CONFIG;
+    let element = '';
+    
+    switch (pin.type) {
+        case 'flat':
+            const transform = pin.rotation ? `transform="rotate(${pin.rotation} ${pin.x + pin.width/2} ${pin.y + pin.height/2})"` : '';
+            element = `<rect x="${pin.x}" y="${pin.y}" width="${pin.width}" height="${pin.height}" 
+                             rx="2" ry="2" style="${styles.pinStyle}" ${transform}/>
+                       <rect x="${pin.x + 1}" y="${pin.y + 2}" width="${pin.width - 2}" height="${pin.height - 4}" 
+                             rx="1" fill="${colors.accent}" opacity="0.6" ${transform}/>`;
+            break;
+            
+        case 'flat_ground':
+            element = `<rect x="${pin.x}" y="${pin.y}" width="${pin.width}" height="${pin.height}" 
+                             rx="2" ry="2" style="${styles.groundStyle}"/>
+                       <rect x="${pin.x + 1}" y="${pin.y + 2}" width="${pin.width - 2}" height="${pin.height - 4}" 
+                             rx="1" fill="${colors.accent}" opacity="0.8"/>`;
+            break;
+            
+        case 'round':
+            element = `<circle cx="${pin.x}" cy="${pin.y}" r="${pin.radius}" style="${styles.pinStyle}"/>
+                       <circle cx="${pin.x}" cy="${pin.y}" r="${pin.radius - 1}" fill="${colors.accent}" opacity="0.6"/>
+                       <circle cx="${pin.x - 1}" cy="${pin.y - 1}" r="1.5" fill="${colors.body}" opacity="0.9"/>`;
+            break;
+            
+        case 'round_ground':
+            element = `<circle cx="${pin.x}" cy="${pin.y}" r="${pin.radius}" style="${styles.groundStyle}"/>
+                       <circle cx="${pin.x}" cy="${pin.y}" r="${pin.radius - 1}" fill="${colors.accent}" opacity="0.8"/>
+                       <circle cx="${pin.x - 1}" cy="${pin.y - 1}" r="1.5" fill="${colors.body}" opacity="0.9"/>`;
+            break;
+    }
+    
+    return element;
+}
+
+// Create body element
+function createBody(body) {
+    const { colors, styles } = SVG_CONFIG;
+    return `<rect x="${body.x}" y="${body.y}" width="${body.width}" height="${body.height}" 
+                  rx="${body.radius}" ry="${body.radius}" style="${styles.bodyStyle}"/>
+            <rect x="${body.x + 2}" y="${body.y + 1}" width="${body.width - 4}" height="3" 
+                  rx="1" fill="${colors.accent}" opacity="0.4"/>`;
+}
+
+// Create grounding clips (for Schuko)
+function createClips(clips) {
+    const { styles } = SVG_CONFIG;
+    return clips.map(clip => 
+        `<rect x="${clip.x}" y="${clip.y}" width="${clip.width}" height="${clip.height}" 
+               rx="${clip.radius}" ry="${clip.radius}" style="${styles.clipStyle}"/>`
+    ).join('');
+}
+
+// Create socket ground element (for Type E)
+function createSocketGround(socketGround) {
+    const { colors } = SVG_CONFIG;
+    return `<rect x="${socketGround.x}" y="${socketGround.y}" width="${socketGround.width}" height="${socketGround.height}" 
+                  rx="2" fill="${colors.socket}" stroke="${colors.ground}" stroke-width="2"/>`;
+}
+
+// Main SVG rendering function
 function renderPlugSvg(type, mode = 'plug') {
-    const blueprint = plugVisualBlueprints[type];
-    if (!blueprint) {
+    const spec = PLUG_SPECIFICATIONS[type];
+    if (!spec) {
         return `<div class="plug-visual-placeholder">Type ${type}</div>`;
     }
-    const palette = plugSvgPalettes[mode];
-    const connectorsMarkup = (blueprint.connectors || []).map(connector => renderConnector(connector, mode)).join('');
-    const extrasMarkup = (blueprint.extras || []).map(extra => renderConnector(extra, mode)).join('');
     
-    // Enhanced body shapes with more details
-    const bodyShape = mode === 'plug'
-        ? `<path d="M20 18c0-10 8-18 18-18h44c10 0 18 8 18 18v44c0 10-8 18-18 18H38c-10 0-18-8-18-18V18z" fill="${palette.base}" stroke="${palette.baseStroke}" stroke-width="2"/>
-           <rect x="22" y="2" width="76" height="8" rx="4" fill="${palette.highlight}" opacity="0.6"/>`
-        : `<rect x="12" y="14" width="96" height="52" rx="14" fill="${palette.base}" stroke="${palette.baseStroke}" stroke-width="2"/>`;
+    const size = getResponsiveSize();
+    const { viewBox, colors } = SVG_CONFIG;
     
-    const highlight = mode === 'plug'
-        ? `<rect x="30" y="18" width="60" height="10" rx="5" fill="${palette.highlight}" opacity="0.75"/>
-           <ellipse cx="60" cy="40" rx="25" ry="8" fill="${palette.highlight}" opacity="0.3"/>`
-        : `<rect x="20" y="22" width="80" height="36" rx="10" fill="${palette.highlight}" opacity="0.9"/>`;
+    // Background and container
+    const background = mode === 'plug' 
+        ? `<rect x="10" y="10" width="100" height="60" rx="8" fill="${colors.body}" 
+             stroke="${colors.bodyStroke}" stroke-width="2" opacity="0.9"/>`
+        : `<rect x="8" y="8" width="104" height="64" rx="12" fill="${colors.socket}" 
+             stroke="#CCCCCC" stroke-width="2"/>
+           <rect x="15" y="15" width="90" height="50" rx="8" fill="#F0F0F0" stroke="#DDDDDD" stroke-width="1"/>`;
+    
+    // Create pins
+    const pins = spec.pins?.map(pin => createPin(pin)).join('') || '';
+    
+    // Create body if specified
+    const body = spec.body ? createBody(spec.body) : '';
+    
+    // Create clips if specified (Schuko)
+    const clips = spec.clips ? createClips(spec.clips) : '';
+    
+    // Create socket ground if specified (Type E)
+    const socketGround = spec.socket_ground ? createSocketGround(spec.socket_ground) : '';
+    
+    // Add decorative elements
+    const decoration = mode === 'plug' 
+        ? `<ellipse cx="60" cy="35" rx="20" ry="5" fill="${colors.accent}" opacity="0.2"/>
+           <rect x="25" y="12" width="70" height="6" rx="3" fill="${colors.accent}" opacity="0.3"/>`
+        : `<circle cx="25" cy="25" r="2" fill="#CCCCCC"/>
+           <circle cx="95" cy="25" r="2" fill="#CCCCCC"/>`;
+    
+    // Enhanced visual details
+    const details = `
+        <defs>
+            <linearGradient id="plugGrad-${type}" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:${colors.body};stop-opacity:1" />
+                <stop offset="100%" style="stop-color:${colors.bodyStroke};stop-opacity:1" />
+            </linearGradient>
+            <filter id="shadow-${type}" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.2"/>
+            </filter>
+        </defs>`;
     
     return `
-        <svg viewBox="0 0 120 80" role="img" aria-label="Type ${type} ${mode === 'plug' ? 'plug' : 'socket'} illustration" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <filter id="shadow-${type}-${mode}" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
-                </filter>
-            </defs>
-            <g filter="url(#shadow-${type}-${mode})">
-                ${bodyShape}
-                ${highlight}
-                ${connectorsMarkup}
-                ${extrasMarkup}
+        <svg width="${size.width}" height="${size.height}" viewBox="0 0 ${viewBox.width} ${viewBox.height}" 
+             role="img" aria-label="${spec.name} ${mode}" xmlns="http://www.w3.org/2000/svg" 
+             class="plug-svg plug-svg-${mode}">
+            ${details}
+            <g filter="url(#shadow-${type})">
+                ${background}
+                ${decoration}
+                ${body}
+                ${clips}
+                ${socketGround}
+                ${pins}
             </g>
         </svg>
     `;
@@ -303,8 +446,8 @@ function renderPlugPhotoCard(type, status = 'neutral') {
                 ${statusChip}
             </div>
             <div class="plug-visual-pair">
-                <div class="plug-visual plug">${renderPlugSvg(type, 'plug')}</div>
-                <div class="plug-visual socket">${renderPlugSvg(type, 'socket')}</div>
+                <div class="plug-visual">${renderPlugSvg(type, SVG_CONFIG.sizes.mobile, SVG_CONFIG.colors.default)}</div>
+                <div class="plug-visual">${renderPlugSvg(type, SVG_CONFIG.sizes.mobile, SVG_CONFIG.colors.socket)}</div>
             </div>
             <p>${description}</p>
         </div>
@@ -552,7 +695,9 @@ function renderPlugTypes() {
     const plugTypesHTML = Object.entries(countriesData.plugTypes).map(([type, data]) => `
         <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="plug-card h-100" data-type="${type}">
-                <div class="plug-icon-svg">${renderPlugSvg(type, 'plug')}</div>
+                <div class="plug-icon-svg">
+                    ${renderPlugSvg(type, SVG_CONFIG.sizes.desktop, SVG_CONFIG.colors.default)}
+                </div>
                 <h3>Type ${type}</h3>
                 <p>${data.description}</p>
                 <div class="voltage">${data.voltage}</div>
