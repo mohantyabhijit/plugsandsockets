@@ -550,11 +550,13 @@ function renderPlugTypes() {
     const grid = document.getElementById('plug-grid');
     
     const plugTypesHTML = Object.entries(countriesData.plugTypes).map(([type, data]) => `
-        <div class="plug-card" data-type="${type}">
-            <div class="plug-icon-svg">${renderPlugSvg(type, 'plug')}</div>
-            <h3>Type ${type}</h3>
-            <p>${data.description}</p>
-            <div class="voltage">${data.voltage}</div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+            <div class="plug-card h-100" data-type="${type}">
+                <div class="plug-icon-svg">${renderPlugSvg(type, 'plug')}</div>
+                <h3>Type ${type}</h3>
+                <p>${data.description}</p>
+                <div class="voltage">${data.voltage}</div>
+            </div>
         </div>
     `).join('');
     
@@ -572,29 +574,31 @@ function renderCountries(regionFilter = 'all') {
     const countriesHTML = countries.map(country => {
         const flag = countryFlags[country.code] || '🌍';
         return `
-            <div class="country-card" data-country="${country.name}">
-                <div class="country-header">
-                    <span class="country-flag">${flag}</span>
-                    <div>
-                        <div class="country-name">${country.name}</div>
-                        <div class="country-region">${country.region}</div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="country-card h-100" data-country="${country.name}">
+                    <div class="country-header">
+                        <span class="country-flag">${flag}</span>
+                        <div>
+                            <div class="country-name">${country.name}</div>
+                            <div class="country-region">${country.region}</div>
+                        </div>
                     </div>
+                    <div class="country-info">
+                        <div class="country-info-item">
+                            <strong>Plug Types</strong>
+                            <span>${country.plugTypes.join(', ')}</span>
+                        </div>
+                        <div class="country-info-item">
+                            <strong>Voltage</strong>
+                            <span>${country.voltage}</span>
+                        </div>
+                        <div class="country-info-item">
+                            <strong>Frequency</strong>
+                            <span>${country.frequency}</span>
+                        </div>
+                    </div>
+                    ${country.notes ? `<div class="country-notes">💡 ${country.notes}</div>` : ''}
                 </div>
-                <div class="country-info">
-                    <div class="country-info-item">
-                        <strong>Plug Types</strong>
-                        <span>${country.plugTypes.join(', ')}</span>
-                    </div>
-                    <div class="country-info-item">
-                        <strong>Voltage</strong>
-                        <span>${country.voltage}</span>
-                    </div>
-                    <div class="country-info-item">
-                        <strong>Frequency</strong>
-                        <span>${country.frequency}</span>
-                    </div>
-                </div>
-                ${country.notes ? `<div class="country-notes">💡 ${country.notes}</div>` : ''}
             </div>
         `;
     }).join('');
