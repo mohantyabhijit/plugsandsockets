@@ -467,7 +467,7 @@ function renderPlugTypes() {
     
     const plugTypesHTML = Object.entries(countriesData.plugTypes).map(([type, data]) => `
         <div class="plug-card" data-type="${type}">
-            <div class="plug-icon">${plugIcons[type] || '🔌'}</div>
+            <div class="plug-icon-svg">${renderPlugSvg(type, 'plug')}</div>
             <h3>Type ${type}</h3>
             <p>${data.description}</p>
             <div class="voltage">${data.voltage}</div>
