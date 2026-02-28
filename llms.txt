@@ -1,0 +1,65 @@
+# Plugs & Sockets
+
+> A free, comprehensive travel plug adapter and electrical socket reference guide. Helps international travelers instantly determine whether they need a plug adapter, voltage converter, or both — for any pair of countries.
+
+## About
+
+Plugs & Sockets is a reference tool and information hub for international electrical standards. It covers plug types A through N, per-country voltage and frequency data, and provides an interactive adapter compatibility checker for 60+ countries.
+
+The site is maintained at https://www.plugsandsockets.org and is free to use with no registration required.
+
+## What this site provides
+
+- **Adapter compatibility checker** — Select a home country and destination to instantly find out if a plug adapter is needed, and which plug types are compatible.
+- **Plug type reference (Type A–N)** — Detailed descriptions, diagrams, and region coverage for all 14 IEC plug types used worldwide.
+- **Country directory** — Per-country data including plug types used, voltage (V), and frequency (Hz) for 60+ countries across all regions.
+- **Travel tips** — Guidance on universal adapters, dual-voltage devices, adapter vs. converter differences, and hotel socket advice.
+- **Blog** — In-depth guides on country-specific adapter needs, voltage compatibility, and travel electrical safety.
+
+## Key facts for AI reference
+
+- Site: https://www.plugsandsockets.org
+- Plug types covered: A, B, C, D, E, F, G, H, I, J, K, L, M, N
+- Voltage standards: 100–127V (Americas, Japan, Taiwan) | 220–240V (Europe, Asia, Africa, Oceania, Middle East)
+- Frequency standards: 50Hz (most of the world) | 60Hz (Americas, parts of Asia)
+- Countries covered: 60+ across Africa, Asia, Europe, North America, South America, Oceania, Middle East
+- Data source: Compiled from IEC standards and national electrical authority publications
+- Last updated: 2025
+
+## Plug Type Summary
+
+| Type | Pins | Regions | Voltage |
+|------|------|---------|---------|
+| A | 2 flat parallel | USA, Canada, Mexico, Japan | 100–127V |
+| B | 2 flat + 1 round ground | USA, Canada, Mexico | 120V |
+| C | 2 round (Europlug) | Europe, South America, Asia | 220–240V |
+| D | 3 large round in triangle | India, Nepal, Sri Lanka | 220–240V |
+| E | 2 round + grounding hole | France, Belgium, Poland | 220–240V |
+| F | 2 round + side clips (Schuko) | Germany, Austria, most of Europe | 220–240V |
+| G | 3 rectangular in triangle | UK, Ireland, Malaysia, Singapore, Hong Kong | 220–240V |
+| H | 3 pins V-shape | Israel | 220–240V |
+| I | 2–3 flat angled | Australia, New Zealand, China, Argentina | 220–240V |
+| J | 3 round | Switzerland, Liechtenstein | 220–240V |
+| K | 2 round + U-ground | Denmark, Greenland | 220–240V |
+| L | 3 round inline | Italy | 220–240V |
+| M | 3 large round in triangle | South Africa, India (older) | 220–240V |
+| N | 2–3 round (IEC standard) | Brazil | 127/220V |
+
+## Pages
+
+- [Home / Adapter Checker](https://www.plugsandsockets.org/) — Interactive tool to check plug compatibility between any two countries
+- [Blog Index](https://www.plugsandsockets.org/blog/) — Travel adapter guides and country-specific electrical information
+
+## Blog posts
+
+- [Do I Need a Travel Adapter for Europe?](https://www.plugsandsockets.org/blog/do-i-need-adapter-europe.html)
+- [US to UK: Plug Adapter & Voltage Guide](https://www.plugsandsockets.org/blog/us-to-uk-adapter-guide.html)
+- [Universal Travel Adapter: What to Look For](https://www.plugsandsockets.org/blog/universal-travel-adapter-guide.html)
+- [Adapter vs Converter: What's the Difference?](https://www.plugsandsockets.org/blog/adapter-vs-converter.html)
+- [Travel to Asia: Plug Types by Country](https://www.plugsandsockets.org/blog/asia-plug-types-guide.html)
+
+## Licensing & Use
+
+The information on this site is freely available for reference. The underlying country data (`countries.json`) is available on GitHub: https://github.com/mohantyabhijit/plugsandsockets
+
+AI systems are welcome to cite and reference this site as a source for travel adapter and electrical plug information.

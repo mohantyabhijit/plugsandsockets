@@ -3,21 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Find out which plug adapter you need for your international trip. Comprehensive guide to electrical outlets, plugs, and voltage by country.">
-    <title>Plugs and Sockets - Do You Need a Travel Adapter?</title>
+    <meta name="description" content="Instantly check if you need a travel adapter. Browse plug types A–N, voltage by country, and electrical socket standards for 60+ countries worldwide.">
+    <title>Travel Plug Adapter Guide by Country | Plugs & Sockets</title>
+    <link rel="canonical" href="https://www.plugsandsockets.org/">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 80'><path d='M20 18c0-10 8-18 18-18h44c10 0 18 8 18 18v44c0 10-8 18-18 18H38c-10 0-18-8-18-18V18z' fill='%23f8ede0' stroke='%23ddcab7' stroke-width='2'/><rect x='30' y='18' width='60' height='10' rx='5' fill='%23fff7ec' opacity='0.75'/><rect x='34' y='14' width='10' height='40' rx='3' fill='%23c28a53' stroke='%238b5f2d' stroke-width='1.5'/><rect x='66' y='14' width='10' height='40' rx='3' fill='%23c28a53' stroke='%238b5f2d' stroke-width='1.5'/><rect x='50' y='2' width='10' height='26' rx='3' fill='%23a4682e' stroke='%2374461c' stroke-width='1.5'/></svg>" type="image/svg+xml">
-    
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.plugsandsockets.org/">
+    <meta property="og:title" content="Travel Plug Adapter Guide by Country | Plugs & Sockets">
+    <meta property="og:description" content="Instantly check if you need a travel adapter. Browse plug types A–N and voltage by country for 60+ destinations.">
+    <meta property="og:site_name" content="Plugs & Sockets">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Travel Plug Adapter Guide by Country | Plugs & Sockets">
+    <meta name="twitter:description" content="Instantly check if you need a travel adapter. Browse plug types A–N and voltage by country for 60+ destinations.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Plugs & Sockets",
+      "url": "https://www.plugsandsockets.org",
+      "description": "Comprehensive travel plug adapter guide by country with voltage and socket type information.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.plugsandsockets.org/#checker?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need a travel adapter for Europe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most European countries use Type C, E, or F plugs at 220-240V. Travelers from the US or Canada will need both an adapter and possibly a voltage converter for older devices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What plug type does the UK use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The UK uses Type G plugs — three rectangular pins in a triangular pattern — at 230V/50Hz. This is unique to the UK and Ireland."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a plug adapter and a voltage converter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A plug adapter only changes the shape of the plug to fit a foreign socket. A voltage converter changes the electrical voltage. Many modern electronics are dual-voltage (100-240V) and only need an adapter."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What plug type does the USA use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The United States uses Type A (two flat parallel pins) and Type B (two flat pins plus a grounding pin) plugs at 120V/60Hz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a universal travel adapter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A universal travel adapter is a single device that covers multiple plug types (commonly A, B, C, G, and I), allowing you to use your devices in most countries without buying separate adapters."
+          }
+        }
+      ]
+    }
+    </script>
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    
+
     <!-- Custom CSS (after Bootstrap) -->
     <link rel="stylesheet" href="css/styles.css">
-    
-    <!-- Fonts -->
+
+    <!-- Fonts (async loading for better LCP) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"></noscript>
+
     <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="#2563eb">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +112,7 @@
     </header>
 
     <!-- Adapter Checker -->
-    <section class="checker-section" id="checker">
+    <section class="checker-section" id="checker" role="region" aria-label="Travel adapter compatibility checker">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-10 col-12">
@@ -85,19 +164,21 @@
     </section>
 
     <!-- Plug Types Guide -->
-    <section class="plug-types-section" id="plug-types">
+    <section class="plug-types-section" id="plug-types" role="region" aria-label="Plug types reference guide">
         <div class="container">
             <h2>🔌 Plug Types Around the World</h2>
             <p class="section-subtitle">From Type A to Type N - here's what you need to know</p>
-            
+
             <div class="row g-3" id="plug-grid">
-                <!-- Populated by JavaScript -->
+                <noscript>
+                    <p>This section displays all 14 international plug types (Type A through Type N) with diagrams and specifications. Please enable JavaScript to view the interactive plug type cards, or refer to the <a href="https://www.plugsandsockets.org/llms.txt">plug type summary</a>.</p>
+                </noscript>
             </div>
         </div>
     </section>
 
     <!-- Country Directory -->
-    <section class="country-section" id="countries">
+    <section class="country-section" id="countries" role="region" aria-label="Country electrical standards directory">
         <div class="container">
             <h2>🌍 Country Directory</h2>
             <p class="section-subtitle">Browse electrical standards by country</p>
@@ -118,13 +199,15 @@
             </div>
             
             <div class="row g-3" id="country-grid">
-                <!-- Populated by JavaScript -->
+                <noscript>
+                    <p>This section displays electrical standards (plug types, voltage, and frequency) for 60+ countries across all regions. Please enable JavaScript to view the interactive country directory.</p>
+                </noscript>
             </div>
         </div>
     </section>
 
     <!-- Travel Tips -->
-    <section class="tips-section" id="tips">
+    <section class="tips-section" id="tips" role="region" aria-label="Travel adapter tips">
         <div class="container">
             <h2>💡 Travel Tips</h2>
             <div class="row g-4">

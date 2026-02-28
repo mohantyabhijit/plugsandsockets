@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Deploy this file to: https://www.plugsandsockets.org/sitemap.xml -->
+<!-- Submit to Google Search Console and Bing Webmaster Tools after deployment -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.plugsandsockets.org/</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Blog index -->
+  <url>
+    <loc>https://www.plugsandsockets.org/blog/</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog posts -->
+  <url>
+    <loc>https://www.plugsandsockets.org/blog/do-i-need-adapter-europe.html</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.plugsandsockets.org/blog/us-to-uk-adapter-guide.html</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.plugsandsockets.org/blog/universal-travel-adapter-guide.html</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.plugsandsockets.org/blog/adapter-vs-converter.html</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.plugsandsockets.org/blog/asia-plug-types-guide.html</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
