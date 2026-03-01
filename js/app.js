@@ -340,6 +340,35 @@ function createPin(pin) {
     return element;
 }
 
+// Create socket hole (recessed pin hole appearance for socket mode)
+function createSocketHole(pin) {
+    let element = '';
+    switch (pin.type) {
+        case 'round':
+        case 'round_ground': {
+            const r = pin.radius;
+            // Outer rim (raised edge), deep dark interior, subtle top highlight
+            element =
+                `<circle cx="${pin.x}" cy="${pin.y}" r="${r + 1.5}" fill="#b0b6c4" stroke="#9098aa" stroke-width="0.8"/>` +
+                `<circle cx="${pin.x}" cy="${pin.y}" r="${r}" fill="#111827"/>` +
+                `<ellipse cx="${pin.x}" cy="${pin.y - r * 0.38}" rx="${r * 0.42}" ry="${r * 0.20}" fill="rgba(255,255,255,0.10)"/>`;
+            break;
+        }
+        case 'flat':
+        case 'flat_ground': {
+            const cx = pin.x + pin.width / 2;
+            const cy = pin.y + pin.height / 2;
+            const transform = pin.rotation ? `transform="rotate(${pin.rotation} ${cx} ${cy})"` : '';
+            element =
+                `<rect x="${pin.x - 1.5}" y="${pin.y - 1.5}" width="${pin.width + 3}" height="${pin.height + 3}" rx="3.5" fill="#b0b6c4" stroke="#9098aa" stroke-width="0.8" ${transform}/>` +
+                `<rect x="${pin.x}" y="${pin.y}" width="${pin.width}" height="${pin.height}" rx="2" fill="#111827" ${transform}/>` +
+                `<rect x="${pin.x + 1}" y="${pin.y + 1}" width="${pin.width - 2}" height="1.5" rx="0.5" fill="rgba(255,255,255,0.08)" ${transform}/>`;
+            break;
+        }
+    }
+    return element;
+}
+
 // Create body element
 function createBody(body) {
     const { colors, styles } = SVG_CONFIG;
@@ -371,38 +400,10 @@ function renderPlugSvg(type, mode = 'plug') {
     if (!spec) {
         return `<div class="plug-visual-placeholder">Type ${type}</div>`;
     }
-    
+
     const size = getResponsiveSize();
     const { viewBox, colors } = SVG_CONFIG;
-    
-    // Background and container
-    const background = mode === 'plug' 
-        ? `<rect x="10" y="10" width="100" height="60" rx="8" fill="${colors.body}" 
-             stroke="${colors.bodyStroke}" stroke-width="2" opacity="0.9"/>`
-        : `<rect x="8" y="8" width="104" height="64" rx="12" fill="${colors.socket}" 
-             stroke="#CCCCCC" stroke-width="2"/>
-           <rect x="15" y="15" width="90" height="50" rx="8" fill="#F0F0F0" stroke="#DDDDDD" stroke-width="1"/>`;
-    
-    // Create pins
-    const pins = spec.pins?.map(pin => createPin(pin)).join('') || '';
-    
-    // Create body if specified
-    const body = spec.body ? createBody(spec.body) : '';
-    
-    // Create clips if specified (Schuko)
-    const clips = spec.clips ? createClips(spec.clips) : '';
-    
-    // Create socket ground if specified (Type E)
-    const socketGround = spec.socket_ground ? createSocketGround(spec.socket_ground) : '';
-    
-    // Add decorative elements
-    const decoration = mode === 'plug' 
-        ? `<ellipse cx="60" cy="35" rx="20" ry="5" fill="${colors.accent}" opacity="0.2"/>
-           <rect x="25" y="12" width="70" height="6" rx="3" fill="${colors.accent}" opacity="0.3"/>`
-        : `<circle cx="25" cy="25" r="2" fill="#CCCCCC"/>
-           <circle cx="95" cy="25" r="2" fill="#CCCCCC"/>`;
-    
-    // Enhanced visual details
+
     const details = `
         <defs>
             <linearGradient id="plugGrad-${type}" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -413,11 +414,71 @@ function renderPlugSvg(type, mode = 'plug') {
                 <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.2"/>
             </filter>
         </defs>`;
-    
+
+    if (mode === 'socket') {
+        // Realistic wall-plate socket rendering
+        const socketPlate =
+            // Outer shadow/border layer
+            `<rect x="4" y="4" width="112" height="72" rx="12" fill="#9ea7b8" stroke="#8a93a8" stroke-width="1"/>` +
+            // Main plate face (warm off-white like real plastic)
+            `<rect x="6" y="6" width="108" height="68" rx="10" fill="#f0ede8" stroke="#d0ccc5" stroke-width="1.5"/>` +
+            // Top bevel highlight
+            `<rect x="8" y="8" width="104" height="3" rx="1.5" fill="rgba(255,255,255,0.70)"/>` +
+            // Left bevel highlight
+            `<rect x="8" y="8" width="3" height="62" rx="1.5" fill="rgba(255,255,255,0.40)"/>` +
+            // Bottom/right shadow
+            `<rect x="8" y="67" width="104" height="2" rx="1" fill="rgba(0,0,0,0.06)"/>`;
+
+        // Schuko (Type F): circular recessed cavity
+        const schukoCavity = spec.features?.includes('side_clips')
+            ? `<circle cx="60" cy="40" r="26" fill="#e6e3dd" stroke="#c0bdb6" stroke-width="1.5"/>` +
+              `<circle cx="60" cy="40" r="25.5" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="0.5"/>`
+            : '';
+
+        // Socket clips (Schuko metal contact strips)
+        const socketClips = spec.clips ? spec.clips.map(clip =>
+            `<rect x="${clip.x}" y="${clip.y}" width="${clip.width}" height="${clip.height}" rx="${clip.radius}" fill="#9098a8" stroke="#6a7280" stroke-width="0.8"/>` +
+            `<rect x="${clip.x + 1}" y="${clip.y + 2}" width="${clip.width - 2}" height="${clip.height - 4}" rx="${clip.radius}" fill="#a8b0bc"/>`
+        ).join('') : '';
+
+        // Pin holes with depth/recess illusion
+        const socketHoles = spec.pins?.map(pin => createSocketHole(pin)).join('') || '';
+
+        // Type E French socket: protruding earth pin
+        const earthPin = spec.socket_ground ? createSocketGround(spec.socket_ground) : '';
+
+        return `
+            <svg width="${size.width}" height="${size.height}" viewBox="0 0 ${viewBox.width} ${viewBox.height}"
+                 role="img" aria-label="${spec.name} socket" xmlns="http://www.w3.org/2000/svg"
+                 class="plug-svg plug-svg-socket">
+                ${details}
+                <g filter="url(#shadow-${type})">
+                    ${socketPlate}
+                    ${schukoCavity}
+                    ${socketClips}
+                    ${earthPin}
+                    ${socketHoles}
+                </g>
+            </svg>
+        `;
+    }
+
+    // Plug mode rendering
+    const background = `<rect x="10" y="10" width="100" height="60" rx="8" fill="${colors.body}"
+         stroke="${colors.bodyStroke}" stroke-width="2" opacity="0.9"/>`;
+
+    const pins = spec.pins?.map(pin => createPin(pin)).join('') || '';
+    const body = spec.body ? createBody(spec.body) : '';
+    const clips = spec.clips ? createClips(spec.clips) : '';
+    const socketGround = spec.socket_ground ? createSocketGround(spec.socket_ground) : '';
+    const decoration =
+        `<ellipse cx="60" cy="35" rx="20" ry="5" fill="${colors.accent}" opacity="0.2"/>` +
+        `<rect x="25" y="12" width="70" height="6" rx="3" fill="${colors.accent}" opacity="0.3"/>`;
+
     return `
-        <svg width="${size.width}" height="${size.height}" viewBox="0 0 ${viewBox.width} ${viewBox.height}" 
-             role="img" aria-label="${spec.name} ${mode}" xmlns="http://www.w3.org/2000/svg" 
-             class="plug-svg plug-svg-${mode}">
+        <svg width="${size.width}" height="${size.height}" viewBox="0 0 ${viewBox.width} ${viewBox.height}"
+             role="img" aria-label="${spec.name} plug" xmlns="http://www.w3.org/2000/svg"
+             class="plug-svg plug-svg-plug">
             ${details}
             <g filter="url(#shadow-${type})">
                 ${background}
@@ -446,8 +507,8 @@ function renderPlugPhotoCard(type, status = 'neutral') {
                 ${statusChip}
             </div>
             <div class="plug-visual-pair">
-                <div class="plug-visual">${renderPlugSvg(type, SVG_CONFIG.sizes.mobile, SVG_CONFIG.colors.default)}</div>
-                <div class="plug-visual">${renderPlugSvg(type, SVG_CONFIG.sizes.mobile, SVG_CONFIG.colors.socket)}</div>
+                <div class="plug-visual">${renderPlugSvg(type, 'plug')}</div>
+                <div class="plug-visual">${renderPlugSvg(type, 'socket')}</div>
             </div>
             <p>${description}</p>
         </div>
@@ -696,7 +757,7 @@ function renderPlugTypes() {
         <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="plug-card h-100" data-type="${type}">
                 <div class="plug-icon-svg">
-                    ${renderPlugSvg(type, SVG_CONFIG.sizes.desktop, SVG_CONFIG.colors.default)}
+                    ${renderPlugSvg(type, 'plug')}
                 </div>
                 <h3>Type ${type}</h3>
                 <p>${data.description}</p>
